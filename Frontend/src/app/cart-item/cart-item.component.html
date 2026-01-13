@@ -1,0 +1,22 @@
+<div class="d-flex flex-row align-items-center gap-5">
+    <img src="{{pizza.image}}" alt="{{pizza.name}} Image" width="75px">
+    <div
+            class="" [ngClass]="veg ? 'bg-success' : 'bg-danger'"
+            style="width:10px; height:10px;">
+    </div>
+    <div class="d-flex flex-column gap-0 justify-content-center">
+        <p class="text-center fw-bold m-0">{{pizza.name}}</p>
+        <p class="text-center m-0">{{pizza.price | currency: "INR"}}</p>
+    </div>
+    <div class="d-flex flex-row align-items-center border rounded-md">
+        <button class="bg-dark text-light rounded-md" (click)="decreaseQuantity()">-</button>
+        <div class="text-center px-2">{{pizza.quantity}}</div>
+        <button class="bg-dark text-light" (click)="increaseQuantity()">+</button>
+    </div>
+    <div class="fw-bold text-center">
+        {{pizza.price * pizza.quantity | currency: "INR"}}
+    </div>
+
+    <button (click)="removeFromCart()">Delete</button>
+</div>
+
